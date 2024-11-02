@@ -5,7 +5,7 @@ function EmployeeForm({ addEmployee, editMode, existingEmployee, saveEdit }) {
   const [position, setPosition] = useState('');
 
   useEffect(() => {
-    if (editMode) {
+    if (editMode && existingEmployee) {
       setName(existingEmployee.name);
       setPosition(existingEmployee.position);
     }
@@ -15,7 +15,7 @@ function EmployeeForm({ addEmployee, editMode, existingEmployee, saveEdit }) {
     e.preventDefault();
     if (name.trim() && position.trim()) {
       if (editMode) {
-        saveEdit({ name, position });
+        saveEdit({ name, position, attendance: existingEmployee.attendance });
       } else {
         addEmployee({ name, position });
       }
