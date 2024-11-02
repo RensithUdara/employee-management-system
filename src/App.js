@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import EmployeeForm from './components/EmployeeForm';
+import EmployeeList from './components/EmployeeList';
 import './App.css';
 
 function App() {
+  const [employees, setEmployees] = useState([]);
+
+  const addEmployee = (employee) => {
+    setEmployees([...employees, employee]);
+  };
+
+  const deleteEmployee = (index) => {
+    setEmployees(employees.filter((_, i) => i !== index));
+  };
+
+  const editEmployee = (index, updatedEmployee) => {
+    const updatedEmployees = employees.map((employee, i) => (i === index ? updatedEmployee : employee));
+    setEmployees(updatedEmployees);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Employee Management System</h1>
+      <EmployeeForm addEmployee={addEmployee} />
+      <EmployeeList
+        employees={employees}
+        deleteEmployee={deleteEmployee}
+        editEmployee={editEmployee}
+      />
     </div>
   );
 }
