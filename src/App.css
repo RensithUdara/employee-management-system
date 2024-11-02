@@ -1,5 +1,5 @@
 body {
-  background-color: #f0f4f8;
+  background: linear-gradient(135deg, #f0f4f8, #dfe7ec);
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -8,19 +8,21 @@ body {
 
 .App {
   max-width: 1000px;
-  margin: auto;
+  margin: 50px auto;
   text-align: center;
   padding: 30px;
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
   font-size: 2.8em;
   color: #333;
   margin-bottom: 25px;
+  background: linear-gradient(to right, #6c63ff, #a66cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .employee-form {
@@ -29,6 +31,7 @@ h1 {
   padding: 25px;
   margin-bottom: 40px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #6c63ff;
 }
 
 .employee-form h3 {
@@ -39,7 +42,7 @@ h1 {
 input {
   margin: 10px 0;
   padding: 12px;
-  width: 300px;
+  width: 90%;
   border: 1px solid #cbd5e0;
   border-radius: 10px;
   font-size: 1em;
@@ -48,8 +51,8 @@ input {
 }
 
 input:focus {
-  border-color: #5a67d8;
-  box-shadow: 0 0 5px rgba(90, 103, 216, 0.5);
+  border-color: #6c63ff;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.4);
 }
 
 button {
@@ -61,11 +64,15 @@ button {
   font-weight: bold;
   color: #ffffff;
   transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
   transform: translateY(-3px);
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 .employee-list {
@@ -81,11 +88,28 @@ button:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
+  border-top: 5px solid #6c63ff;
+  overflow: hidden;
 }
 
 .employee-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.employee-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.employee-card .card-header h4 {
+  margin: 0;
+  font-size: 1.3em;
+  color: #6c63ff;
 }
 
 .employee-card p {
@@ -106,6 +130,9 @@ button:hover {
   flex: 1;
   margin: 5px;
   padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .employee-actions button:nth-child(1) {
@@ -164,4 +191,13 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 0.95em;
   color: #4a5568;
+}
+
+.footer {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #6c63ff;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 0 0 16px 16px;
 }
